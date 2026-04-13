@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Protótipo Navegável - SES-DF</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f7fb;
+      text-align: center;
+      margin: 0;
+    }
+    .tela {
+      display: none;
+      margin-top: 30px;
+    }
+    .ativa {
+      display: block;
+    }
+    img {
+      max-width: 90%;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Protótipo Navegável – Regulação SES-DF</h1>
+
+  <!-- Tela 1 -->
+  <div id="tela1" class="tela ativa">
+    <img src="tela1-identificacao.jpg" alt="Tela 1 - Identificação" usemap="#mapTela1">
+    <map name="mapTela1">
+      <!-- Área clicável do botão "Pesquisar Minha Solicitação" -->
+      <area shape="rect" coords="401,671,1072,621" alt="Pesquisar Minha Solicitação" href="javascript:mostrarTela('tela2')">
+    </map>
+  </div>
+
+  <!-- Tela 2 -->
+  <div id="tela2" class="tela">
+    <img src="tela2-dashboard.jpg" alt="Tela 2 - Dashboard" usemap="#mapTela2">
+    <map name="mapTela2">
+      <!-- Área do “Ver Detalhes” do primeiro item -->
+      <area shape="rect" coords="946,316,836,241" alt="Ver Detalhes" href="javascript:mostrarTela('tela3')">
+      <!-- Área do novo botão "Voltar ao Login" -->
+      <area shape="rect" coords="1301,679,1372,705" alt="Voltar ao Login" href="javascript:mostrarTela('tela1')">
+    </map>
+  </div>
+
+  <!-- Tela 3 -->
+  <div id="tela3" class="tela">
+    <img src="tela3-detalhes.jpg" alt="Tela 3 - Detalhes da Solicitação" usemap="#mapTela3">
+    <map name="mapTela3">
+      <!-- Área do botão "Voltar" -->
+      <area shape="rect" coords="1020,494,945,518" alt="Voltar ao Dashboard" href="javascript:mostrarTela('tela2')">
+    </map>
+  </div>
+
+  <script>
+    function mostrarTela(id) {
+      document.querySelectorAll('.tela').forEach(t => t.classList.remove('ativa'));
+      document.getElementById(id).classList.add('ativa');
+    }
+  </script>
+
+</body>
+</html>
